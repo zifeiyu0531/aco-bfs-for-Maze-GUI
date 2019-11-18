@@ -1,325 +1,149 @@
-#include<iostream>
-#include<stack>
-#include<bitset>
+ï»¿
+#include <iostream>
+#include "Queue.h"
+#define M 8
+#define N 8
+
 using namespace std;
-//×ø±êÀà
-struct Point
-{
-	int x;
-	int y;
-};
-//µØÍ¼Àà
-template<int A, int B>
-class Map
-{
-public:
-	int(*p)[B];//1±íÊ¾ÎªÕÏ°­·½¸ñ£¬0±íÊ¾¸Ã·½¸ñ¿ÉÍ¨
-	bitset<4>(*around)[B];//¼ÇÂ¼Ã¿Ò»¸ö·½¸ñËÄÖÜËÄ¸ö·½·¨µÄ¿ÉÑ¡±ê¼Ç
-	int row;//ĞĞÊı
-	int col;//ÁĞÊı
-	Map()
-	{
-		p = new int[A][B];
-		around = new bitset<4>[A][B];
-	}
-	Map(Map<A, B> & B1)
-	{
-		p = new int[A][B];
-		around = new bitset<4>[A][B];
-		row = B1.row;
-		col = B1.col;
-		for (int i = 0; i < row; i++)
-		{
-			for (int j = 0; j < col; j++)
-			{
-				p[i][j] = B1.p[i][j];
-				around[i][j] = B1.around[i][j];
-			}
-		}
-	}
-	Map<A, B> & operator=(Map<A, B> & B1)
-	{
-		row = B1.row;
-		col = B1.col;
-		for (int i = 0; i < row; i++)
-		{
-			for (int j = 0; j < col; j++)
-			{
-				this->p[i][j] = B1.p[i][j];
-				around[i][j] = B1.around[i][j];
-			}
-		}
-		return *this;
-	}
+
+int map[M + 2][N + 2] = {
+{1,1,1,1,1,1,1,1,1,1},{1,0,0,1,0,0,0,1,0,1},{1,0,0,1,0,0,0,1,0,1},{1,0,0,0,0,1,1,0,0,1},{1,0,1,1,1,0,0,0,0,1},
+{1,0,0,0,1,0,0,0,0,1},{1,0,1,0,0,0,1,0,0,1},{1,0,1,1,1,0,1,1,0,1},{1,1,0,0,0,0,0,0,0,1},{1,1,1,1,1,1,1,1,1,1}
 };
 
-//startÆğÊ¼µã£¬ endÖÕÖ¹µã
-template<int A, int B>
-bool FindPath(Map<A, B> & map, Point & start, Point & end)
+void ShowPath(Queue *qu, int front)
 {
-	const int N1 = A;
-	const int N2 = B;
-
-	const int M = 10;//Ã¿Ò»ÂÖÖĞÂìÒÏµÄ¸öÊı
-	const int RcMax = 20;//µü´ú´ÎÊı
-	const int IN = 1;//ĞÅÏ¢ËØµÄ³õÊ¼Á¿
-
-	double add[N1][N2];//Ã¿Ò»¶ÎµÄĞÅÏ¢ËØÔöÁ¿Êı×é
-	double phe[N1][N2];//Ã¿Ò»¶ÎÂ·¾¶ÉÏµÄĞÅÏ¢ËØ
-	double MAX = 0x7fffffff;
-
-	double alphe, betra, rout, Q;//alpheĞÅÏ¢ËØµÄÓ°ÏìÒò×Ó£¬betraÂ·Ïß¾àÀëµÄÓ°ÏìÒò×Ó£¬routĞÅÏ¢ËØµÄ±£³Ö¶È£¬QÓÃÓÚ¼ÆËãÃ¿Ö»ÂìÒÏÔÚÆäÂ·¼£ÁôÏÂµÄĞÅÏ¢ËØÔöÁ¿
-	double bestSolution = MAX;//×î¶Ì¾àÀë
-	stack<Point> Beststackpath;//×îÓÅÂ·Ïß
-
-	//³õÊ¼»¯±äÁ¿²ÎÊıºÍĞÅÏ¢Êı×é
-	alphe = betra = 2;
-	rout = 0.7;
-	Q = 10;
-
-	//ÏÈ¸øÍ¼µÄÍâÎ§¼ÓÉÏÕÏ°­
-	for (int i = 0; i < map.col; i++)
+	int p = front, p0;
+	do
 	{
-		map.p[0][i] = map.p[map.row - 1][i] = 1;
-	}
-	for (int i = 0; i < map.row; i++)
+		p0 = p;
+		p = qu->data[p].pre;
+		qu->data[p0].pre = -1;
+	} while (p != 0); 
+	cout << "æœ€çŸ­è·¯å¾„ï¼š" << endl;
+	for (int k = 0; k < MaxSize; k++)
 	{
-		map.p[i][0] = map.p[i][map.col - 1] = 1;
-	}
-	//³õÊ¼»¯Í¼ÖĞÃ¿Ò»¸ö·½¸ñµÄËÄÖÜ·ÃÎÊ±íÊ¾Î»£¬0±íÊ¾¿É·ÃÎÊ
-	//³õÊ¼»¯ĞÅÏ¢ËØÊı×é
-	for (int i = 0; i < N1; i++)
-	{
-		for (int j = 0; j < N2; j++)
+		if (qu->data[k].pre == -1)
 		{
-			phe[i][j] = IN;
-			map.around[i][j].reset();//4¸ö·½ÏòÈ«²¿ÉèÎª¿ÉÑ¡
+			cout << "(" << qu->data[k].i << "," << qu->data[k].j << ")";
+			cout << "->";
 		}
 	}
+}
 
-	//ÓÃÓÚ·½ÏòÑ¡ÔñµÄÆ«ÒÆÁ¿Êı×é   °´ÕÕË³Ê±ÕëµÄ·½Ïò
-	Point offset[4];
-	offset[0].x = 0; offset[0].y = 1;//ÏòÓÒ
-	offset[1].x = 1; offset[1].y = 0;//ÏòÏÂ
-	offset[2].x = 0; offset[2].y = -1;//Ïò×ó
-	offset[3].x = -1; offset[3].y = 0;//ÏòÉÏ
 
-	//Ã¿ÂÖMÖ»ÂìÒÏ£¬Ã¿Ò»ÂÖ½áÊøºó²Å½øĞĞÈ«¾ÖĞÅÏ¢ËØ¸üĞÂ
-	stack<Point> stackpath[M];
-	//¿½±´ÕÏ°­µØÍ¼
-	Map<A, B> Ini_map[M];
-	//¼ÇÂ¼Ã¿Ò»Ö»ÂìÒÏµÄµ±Ç°Î»ÖÃ
-	Point Allposition[M];
 
-	int s = 0;
-	while (s < RcMax)//Ò»¹²RcMaxÂÖ
+
+bool Path(int x0, int y0, int x, int y) 
+{
+	int i, j, i0, j0;
+	Box e;
+	Queue * qu;
+	InitQueue(qu);
+	e.i = x0;
+	e.j = y0;
+	e.pre = -1;
+	enQueue(qu, e);
+	map[x0][y0] = -1; 
+
+	while (!QueueEmpty(qu))
+
 	{
 
-		//ÏÈÇå¿ÕÃ¿Ò»Ö»ÂìÒÏµÄÂ·Ïß´æ´¢Õ»
-		for (int i = 0; i < M; i++)
+		deQueue(qu, e);
+
+		i = e.i;
+
+		j = e.j;
+
+		if (i == x && j == y)
+
 		{
-			while (!stackpath[i].empty())
-			{
-				stackpath[i].pop();
-			}
+
+			ShowPath(qu, qu->front);
+
+			DestroyQueue(qu);
+
+			return true;
+
 		}
-		for (int i = 0; i < M; i++)
-		{
-			Ini_map[i] = map;
-			//½«Æğµã³õÊ¼»¯ÎªÕÏ°­µã
-			Ini_map[i].p[start.x][start.y] = 1;
-			//ÆğµãÈëÕ»
-			stackpath[i].push(start);
-			//³õÊ¼»¯Ã¿Ò»Ö»ÂìÒÏµÄµ±Ç°Î»ÖÃ
-			Allposition[i] = start;
-		}
 
-		//¿ªÆôMÖ»ÂìÒÏÑ­»·
-		for (int j = 0; j < M; j++)
+		for (int circle = 0; circle < 4; circle++)
+
 		{
-			cout << "µÚ" << j << "Ö»ÂìÒÏ" << endl;
-			while (((Allposition[j].x) != (end.x) || (Allposition[j].y) != (end.y)))
+
+			switch (circle)
+
 			{
-				cout << "<" << Allposition[j].x << "," << Allposition[j].y << ">" << endl;
-				//Ñ¡ÔñÏÂÒ»²½
-				double psum = 0;
-				for (int op = 0; op < 4; op++)
-				{
-					//¼ÆËãÏÂÒ»¸ö¿ÉÄÜµÄ×ø±ê
-					int x = Allposition[j].x + offset[op].x;
-					int y = Allposition[j].y + offset[op].y;
 
-					if ((Ini_map[j].around[Allposition[j].x][Allposition[j].y])[op] == 0 && Ini_map[j].p[x][y] != 1)
-					{
-						psum += pow(phe[x][y], alphe) * pow((10.0 / stackpath[j].size()), betra);
-					}
-				}
-				//ÅĞ¶ÏÊÇ·ñÓĞÑ¡Ôñ
-				//ÈçÕÒµ½ÁËÏÂÒ»µã
-				if (psum != 0)
-				{
-					double drand = (double)(rand()) / (RAND_MAX + 1);
-					double pro = 0;
-					int re;
-					int x, y;
-					for (re = 0; re < 4; re++)
-					{
-						//¼ÆËãÏÂÒ»¸ö¿ÉÄÜµÄ×ø±ê
-						x = Allposition[j].x + offset[re].x;
-						y = Allposition[j].y + offset[re].y;
-						if ((Ini_map[j].around[Allposition[j].x][Allposition[j].y])[re] == 0 && Ini_map[j].p[x][y] != 1)
-						{
-							pro += (pow(phe[x][y], alphe) * pow((10.0 / stackpath[j].size()), betra)) / psum;
-							if (pro >= drand)
-							{
-								break;
-							}
-						}
-					}
+			case 0:
 
-					//ÈëÕ»
-					Allposition[j].x = x;
-					Allposition[j].y = y;
-					stackpath[j].push(Allposition[j]);
-					//ÉèÖÃÕÏ°­
-					Ini_map[j].p[Allposition[j].x][Allposition[j].y] = 1;
+				i0 = i - 1;
 
-				}
-				else//Ã»ÕÒµ½ÁËÏÂÒ»µã
-				{
-					//ÏòºóÍËÒ»²½£¬³öÕ»
-					stackpath[j].pop();
-					//Ïû³ıÈëÕ»Ê±ÉèÖÃµÄÕÏ°­
-					Ini_map[j].p[Allposition[j].x][Allposition[j].y] = 0;
-					if (stackpath[j].empty())
-					{
-						return false;
-						//cout << "Ê§°Ü" << endl;
-					}
-					//ÉèÖÃ»ØËİºóµÄAllposition
-					if (Allposition[j].x == stackpath[j].top().x)
-					{
-						if ((Allposition[j].y - stackpath[j].top().y) == 1)//ÏòÓÒ
-						{
-							(Ini_map[j].around[stackpath[j].top().x][stackpath[j].top().y])[0] = 1;//±ê¼Ç¸Ã·½ÏòÒÑ·ÃÎÊ
-						}
-						if ((Allposition[j].y - stackpath[j].top().y) == -1)//Ïò×ó
-						{
-							(Ini_map[j].around[stackpath[j].top().x][stackpath[j].top().y])[2] = 1;//±ê¼Ç¸Ã·½ÏòÒÑ·ÃÎÊ
-						}
-					}
-					if (Allposition[j].y == stackpath[j].top().y)
-					{
+				j0 = j;
 
-						if ((Allposition[j].x - stackpath[j].top().x) == 1)//ÏòÏÂ
-						{
-							(Ini_map[j].around[stackpath[j].top().x][stackpath[j].top().y])[1] = 1;//±ê¼Ç¸Ã·½ÏòÒÑ·ÃÎÊ
-						}
-						if ((Allposition[j].x - stackpath[j].top().x) == -1)//ÏòÉÏ
-						{
-							(Ini_map[j].around[stackpath[j].top().x][stackpath[j].top().y])[3] = 1;//±ê¼Ç¸Ã·½ÏòÒÑ·ÃÎÊ
-						}
-					}
-					Allposition[j].x = stackpath[j].top().x;
-					Allposition[j].y = stackpath[j].top().y;
-				}
+				break;
+
+			case 1:
+
+				i0 = i;
+
+				j0 = j + 1;
+
+				break;
+
+			case 2:
+
+				i0 = i + 1;
+
+				j0 = j;
+
+				break;
+
+			case 3:
+
+				i0 = i;
+
+				j0 = j - 1;
+
+				break;
 
 			}
+
+			if (map[i0][j0] == 0)
+
+			{
+
+				e.i = i0;
+
+				e.j = j0;
+
+				e.pre = qu->front;
+
+				enQueue(qu, e);
+
+				map[i0][j0] = -1;
+
+			}
+
 		}
 
-		//±£´æ×îÓÅÂ·Ïß
-		double solution = 0;
-		for (int i = 0; i < M; i++)
-		{
-			solution = 0;
-			solution = stackpath[i].size();
-			if (solution < bestSolution)
-			{
-				Beststackpath = stackpath[i];
-				bestSolution = solution;
-			}
-		}
-		//¼ÆËãÃ¿Ò»Ö»ÂìÒÏÔÚÆäÃ¿Ò»¶ÎÂ·¾¶ÉÏÁôÏÂµÄĞÅÏ¢ËØÔöÁ¿
-		//³õÊ¼»¯ĞÅÏ¢ËØÔöÁ¿Êı×é
-		for (int i = 0; i < N1; i++)
-		{
-			for (int j = 0; j < N2; j++)
-			{
-				add[i][j] = 0;
-			}
-		}
-
-		for (int i = 0; i < M; i++)
-		{
-			//ÏÈËã³öÃ¿Ö»ÂìÒÏµÄÂ·ÏßµÄ×Ü¾àÀësolu
-			double solu = 0;
-			solu = stackpath[i].size();
-			double d = Q / solu;
-			while (!stackpath[i].empty())
-			{
-				add[stackpath[i].top().x][stackpath[i].top().y] += d;
-				stackpath[i].pop();
-			}
-		}
-		//¸üĞÂĞÅÏ¢ËØ
-		for (int i = 0; i < N1; i++)
-		{
-			for (int j = 0; j < N2; j++)
-			{
-				phe[i][j] = phe[i][j] * rout + add[i][j];
-				//ÎªĞÅÏ¢ËØÉèÖÃÒ»¸öÏÂÏŞÖµºÍÉÏÏŞÖµ
-				if (phe[i][j] < 0.0001)
-				{
-					phe[i][j] = 0.0001;
-				}
-				if (phe[i][j] > 20)
-				{
-					phe[i][j] = 20;
-				}
-			}
-		}
-
-		s++;
-	}//ÂÖ
-
-	//ÕÒµ½Â·¾¶£¬²¢Êä³östackpath
-	cout << "ÕÒµ½×îÓÅÂ·¾¶£¡" << endl;
-	cout << "×î¶ÌÂ·Ïß³¤¶ÈÎª£º ¹²" << Beststackpath.size() << "¸ö·½¸ñ£¡" << endl;
-	while (!Beststackpath.empty())
-	{
-		cout << "<" << Beststackpath.top().x << "," << Beststackpath.top().y << ">" << endl;
-		Beststackpath.pop();
 	}
 
-	return true;
+	DestroyQueue(qu);
+
+	return false;
+
 }
 
 int main()
+
 {
-	//½¨Á¢ÃÔ¹¬
-	Map<10, 10> map;
-	map.col = map.row = 10;
-	int p[10][10];
-	for (int i = 0; i < 10; i++)//³õÊ¼»¯ÃÔ¹¬
-	{
-		for (int j = 0; j < 10; j++)
-		{
-			p[i][j] = 0;
-		}
-	}
-	//ÎªÃÔ¹¬ÉèÖÃÕÏ°­
-	p[1][3] = 1; p[1][7] = 1; p[2][3] = 1; p[2][7] = 1;
-	p[3][5] = 1; p[3][6] = 0; p[4][2] = 1; p[4][3] = 1;
-	p[4][4] = 1; p[5][4] = 1; p[6][2] = 1; p[6][6] = 1;
-	p[7][2] = 1; p[7][3] = 1; p[7][4] = 1; p[7][6] = 1;
-	p[8][1] = 1;
-	map.p = p;
-	Point start, end;
-	start.x = start.y = 1;
-	end.x = 8, end.y = 8;
-	if (!FindPath<10, 10>(map, start, end))
-	{
-		cout << "¸ÃÃÔ¹¬ÎŞ½â£¡" << endl;
-	}
+
+	if (!Path(1, 1, 8, 8))
+
+		cout << "è¿·å®«æ— æ­£ç¡®è·¯å¾„";
 	getchar();
+	return 0;
+
 }
