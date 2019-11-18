@@ -131,7 +131,7 @@ def FindPath(map: Map, start: Point, end: Point, A: int, B: int, w, h, dc, temp_
                 temp_phe.put([(Allposition[j].x-1) * w, (Allposition[j].y-1) * h])
                 dc.SetBrush(wx.Brush(wx.Colour(255, 0, 0)))
                 dc.DrawRectangle((Allposition[j].x-1) * w, (Allposition[j].y-1) * h, w, h)
-
+                time.sleep(0.005)
                 #选择下一步
                 psum = 0.0
                 for op in range(4):
