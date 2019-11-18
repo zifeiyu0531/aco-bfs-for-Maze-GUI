@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8af05e7c-8a9a-4fc1-ac12-cd413489e92b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/aco.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/bfs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GUI.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/GUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/.vs/ant/v15/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/.vs/ant/v15/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/.vs/ant/v15/Browse.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/.vs/ant/v15/Browse.VC.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/Debug/ant.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/Debug/ant.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/Debug/ant.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/Debug/ant.ilk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/Debug/ant.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/Debug/ant.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/ant/Debug/ant.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/ant/Debug/ant.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/ant/Debug/ant.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/ant/Debug/ant.tlog/CL.command.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/ant/Debug/ant.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/ant/Debug/ant.tlog/CL.read.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/ant/Debug/ant.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/ant/Debug/ant.tlog/CL.write.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/ant/Debug/ant.tlog/ant.lastbuildstate" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/ant/Debug/ant.tlog/ant.lastbuildstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/ant/Debug/ant.tlog/link.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/ant/Debug/ant.tlog/link.command.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/ant/Debug/ant.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/ant/Debug/ant.tlog/link.read.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/ant/Debug/ant.tlog/link.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/ant/Debug/ant.tlog/link.write.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/ant/Debug/vc141.idb" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/ant/Debug/vc141.idb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/ant/Debug/vc141.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/ant/Debug/vc141.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ant/ant/ant.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../ant/ant/ant.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="8af05e7c-8a9a-4fc1-ac12-cd413489e92b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,20 +18,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2280">
-              <caret line="126" column="46" selection-start-line="126" selection-start-column="46" selection-end-line="126" selection-end-column="46" />
-              <folding>
-                <element signature="e#25#34#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="57">
+              <caret line="3" column="14" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/aco.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="78" column="47" lean-forward="true" selection-start-line="74" selection-start-column="4" selection-end-line="78" selection-end-column="47" />
+            <state relative-caret-position="285">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -63,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bfs.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1235">
-              <caret line="65" column="27" lean-forward="true" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+              <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -247,16 +220,18 @@
       <updated>1573708272212</updated>
       <workItem from="1573708287294" duration="77000" />
       <workItem from="1573708622444" duration="32255000" />
+      <workItem from="1574066734451" duration="262000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32332000" />
+    <option name="totallyTimeSpent" value="32594000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12698413" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12849584" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -290,32 +265,29 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/aco.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="78" column="47" lean-forward="true" selection-start-line="74" selection-start-column="4" selection-end-line="78" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2280">
-          <caret line="126" column="46" selection-start-line="126" selection-start-column="46" selection-end-line="126" selection-end-column="46" />
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="57">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/bfs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1235">
-          <caret line="65" column="27" lean-forward="true" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+          <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/aco.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
