@@ -18,10 +18,10 @@ wxpython:GUI图形库<br>
 # Usage
 使用任意python代码编辑器或IDE打开`src`文件<br>
 运行`GUI.py`<br>
-![image](https://github.com/zifeiyu0531/readme-imgs/blob/master/aco-bfs-for-Maze-GUI/start.png)
+![image](https://github.com/zifeiyu0531/readme-imgs/blob/master/aco-bfs-for-Maze-GUI/start.png)<br>
 选择`迷宫尺寸`<br>
 点击`生成迷宫`<br>
-![image](https://github.com/zifeiyu0531/readme-imgs/blob/master/aco-bfs-for-Maze-GUI/maze.png)
+![image](https://github.com/zifeiyu0531/readme-imgs/blob/master/aco-bfs-for-Maze-GUI/maze.png)<br>
 点击`蚁群算法`执行蚁群算法动画，点击`广度优先算法`执行广度优先算法动画<br>
 # Pack
 可使用[PyInstaller](http://www.pyinstaller.org/)将该项目打包成exe格式。<br>
