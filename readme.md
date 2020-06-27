@@ -18,7 +18,7 @@ wxpython:GUI图形库<br>
 # Usage
 使用任意python代码编辑器或IDE打开`src`文件<br>
 运行`GUI.py`<br>
-![](https://github.com/zifeiyu0531/readme-imgs/blob/master/aco-bfs-for-Maze-GUI/%E5%88%9D%E5%A7%8B%E7%95%8C%E9%9D%A2.png)
+![](https://github.com/zifeiyu0531/readme-imgs/raw/master/aco-bfs-for-Maze-GUI/初始界面.png)
 选择`迷宫尺寸`<br>
 点击`生成迷宫`<br>
 ![](https://github.com/zifeiyu0531/readme-imgs/blob/master/aco-bfs-for-Maze-GUI/%E7%94%9F%E6%88%90%E8%BF%B7%E5%AE%AB.png)
