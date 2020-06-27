@@ -1,5 +1,6 @@
 # Background
-    蚁群算法&广度优先算法求解迷宫最优路径问题(附带GUI)
+蚁群算法&广度优先算法求解迷宫最优路径问题(附带GUI)<br>
+视频地址：[【算法】蚁群算法&广度优先求解迷宫最短路径](https://www.bilibili.com/video/BV1gJ411G7Xi)<br>
 # Install
 ##### step1.clone该Repository到你的本地路径
 ##### step2.解压缩
@@ -17,4 +18,21 @@ wxpython:GUI图形库<br>
 # Usage
 使用任意python代码编辑器或IDE打开`src`文件<br>
 运行`GUI.py`<br>
+![](https://github.com/zifeiyu0531/readme-imgs/blob/master/aco-bfs-for-Maze-GUI/%E5%88%9D%E5%A7%8B%E7%95%8C%E9%9D%A2.png)
+选择`迷宫尺寸`<br>
+点击`生成迷宫`<br>
+        可以多次点击以刷新迷宫形状<br
+![](https://github.com/zifeiyu0531/readme-imgs/blob/master/aco-bfs-for-Maze-GUI/%E7%94%9F%E6%88%90%E8%BF%B7%E5%AE%AB.png)
+点击`蚁群算法`执行蚁群算法动画，点击`广度优先算法`执行广度优先算法动画<br>
+        算法执行过程中切勿关闭GUI否则会无响应<br>
 # Pack
+可使用[PyInstaller](http://www.pyinstaller.org/)将该项目打包成exe格式。<br>
+`PyInstaller`安装：
+```
+pip install pyinstaller
+```
+使用：
+```
+pyinstaller -F -w GUI.py
+```
+在`GUI.py`相同目录下会新增`dist`文件夹，内部放有`GUI.exe`文件
