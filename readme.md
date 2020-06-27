@@ -12,6 +12,9 @@
 >>>aco.py               `蚁群算法代码文件`<br>
 >>>bfs.py               `广度优先算法代码文件`<br>
 ##### step3.安装项目运行时所需要的外部库
-        wxpython
-        [安装教程](https://www.cnblogs.com/icelee1218/p/8127670.html)
+wxpython:GUI图形库<br>
+[安装教程](https://www.cnblogs.com/icelee1218/p/8127670.html)<br>
 # Usage
+使用任意python代码编辑器或IDE打开`src`文件<br>
+运行`GUI.py`<br>
+# Pack
