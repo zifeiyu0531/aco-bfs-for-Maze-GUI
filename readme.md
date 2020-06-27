@@ -21,10 +21,8 @@ wxpython:GUI图形库<br>
 ![](https://github.com/zifeiyu0531/readme-imgs/blob/master/aco-bfs-for-Maze-GUI/%E5%88%9D%E5%A7%8B%E7%95%8C%E9%9D%A2.png)
 选择`迷宫尺寸`<br>
 点击`生成迷宫`<br>
-        可以多次点击以刷新迷宫形状<br
 ![](https://github.com/zifeiyu0531/readme-imgs/blob/master/aco-bfs-for-Maze-GUI/%E7%94%9F%E6%88%90%E8%BF%B7%E5%AE%AB.png)
 点击`蚁群算法`执行蚁群算法动画，点击`广度优先算法`执行广度优先算法动画<br>
-        算法执行过程中切勿关闭GUI否则会无响应<br>
 # Pack
 可使用[PyInstaller](http://www.pyinstaller.org/)将该项目打包成exe格式。<br>
 `PyInstaller`安装：
