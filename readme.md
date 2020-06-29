@@ -1,6 +1,6 @@
 # Background
 蚁群算法&广度优先算法求解迷宫最优路径问题(附带GUI)<br>
-视频地址：[【算法】蚁群算法&广度优先求解迷宫最短路径](https://www.bilibili.com/video/BV1gJ411G7Xi)<br>
+视频地址：[bilibili:【算法】蚁群算法&广度优先求解迷宫最短路径](https://www.bilibili.com/video/BV1gJ411G7Xi)<br>
 # Install
 ##### step1.clone该Repository到你的本地路径
 ##### step2.解压缩
